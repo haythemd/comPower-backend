@@ -1,0 +1,40 @@
+blockchains:
+  my_rell_dapp:
+    module: main
+    moduleArgs:
+      lib.ft4.core.admin:
+        admin_pubkey: 02A229DD9D9D14395B1B9C30DA0BA80EE96551DA9CF337B90E899AF13113827E92
+      lib.ft4.core.accounts:
+        auth_descriptor:
+          max_number_per_account: 4
+compile:
+  rellVersion: 0.13.14
+database:
+  schema: schema_my_rell_dapp
+  password: mooseChain
+  username: postchain
+  database: postchain
+  host:  localhost
+  logSqlErrors: true
+  driver:  org.postgresql.Driver
+libs:
+  auth:
+    registry: https://bitbucket.org/chromawallet/auth-server-ft4.git
+    path: rell/src/auth
+    tagOrBranch: v2.1.0r
+    rid: x"7EC77529149B510F7863BA19CE2A8798AD8492A98A79F8B350FE8D774996F268"
+    insecure: false
+  ft4:
+    registry: https://bitbucket.org/chromawallet/ft3-lib
+    path: rell/src/lib/ft4
+    tagOrBranch: v0.7.0r
+    rid: x"F7C207AA595ABD25FDE5C2C2E32ECD3768B480AD03D1F2341548FF4F37D9B7AF"
+    insecure: false
+  iccf:
+    registry: https://gitlab.com/chromaway/core/directory-chain
+    path: src/iccf
+    tagOrBranch: 1.32.2
+    rid: x"1D567580C717B91D2F188A4D786DB1D41501086B155A68303661D25364314A4D"
+test:
+  modules:
+    - test
